@@ -6,9 +6,8 @@ class Solution:
         mp = defaultdict(list)
         for st in strs:
             key = "".join(sorted(st))
-            mp[key].append(st)
+            mp[key].append(st) 
         return list(mp.values())
-
 
 if __name__ == '__main__':
     strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
