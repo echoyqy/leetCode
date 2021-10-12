@@ -8,17 +8,17 @@ class TreeNode:
 
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
+        res = []
 
-        def tree(node):
-            if not node:
-                return
-            tree(node.left)
-            ls.append(node.val)
-            tree(node.right)
+        def tree(root):
+            if not root:
+                return False
+            tree(root.left)
+            res.append(root.val)
+            tree(root.right)
 
-        ls = []
         tree(root)
-        for i in range(len(ls) - 1):
-            if ls[i] >= ls[i + 1]:
+        for i in range(len(res) - 1):
+            if res[i] >= res[i + 1]:
                 return False
         return True
