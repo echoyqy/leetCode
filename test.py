@@ -13,7 +13,21 @@ def find_test_file(srcDir, desDir, name):
         print(srcPath, 'not exists')
 
 
+def remove_file(videoDir, txtDir, saveDir):
+    if not os.path.exists(saveDir):
+        os.makedirs(saveDir)
+    txts = os.listdir(txtDir)
+    for txt in txts:
+        videoName = txt.split('.')[0]
+        srcVideo = os.path.join(videoDir, videoName + '.mp4')
+        desVideo = os.path.join(saveDir, videoName + '.mp4')
+        if os.path.exists(srcVideo):
+            shutil.copyfile(srcVideo, desVideo)
+
+
 if __name__ == '__main__':
+    remove_file(videoDir='D:/inhand/video', txtDir='D:/inhand/txt', saveDir='D:/inhand/video2')
+
     skus = ['农夫山泉',
             '百事可乐（罐）',
             '达利园青梅绿茶500ml',
@@ -35,7 +49,7 @@ if __name__ == '__main__':
             '红牛维生素功能饮料',
             '康师傅茉莉蜜茶500ml',
             ]
-    srcDir = r'D:\yqy\project\Inhand\数据\goodsVideoUrl'
-    desDir = r'D:\yqy\project\Inhand\数据\test20'
-    for sku in skus:
-        find_test_file(srcDir, desDir,sku)
+    # srcDir = r'D:\yqy\project\Inhand\数据\goodsVideoUrl'
+    # desDir = r'D:\yqy\project\Inhand\数据\test20'
+    # for sku in skus:
+    #     find_test_file(srcDir, desDir,sku)
